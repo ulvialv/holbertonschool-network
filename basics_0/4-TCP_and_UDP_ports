@@ -1,25 +1,4 @@
 #!/usr/bin/env bash
-# netstat komandası ıle TCP ve UDP dınleme soketlerını, PID ve program adını gosterır.
-# netstat -lntup: l=dınleme, n=rakamsal, t=TCP, u=UDP, p=proses/program
-# 2>/dev/null: IcaZa xetalarını yoksayar.
-# grep LISTEN: Yalnızca dınleme (LISTEN) vazıyetınde olanları tutar.
+# Displays listening ports with PID and program name
 
-netstat -lntup 2>/dev/null | grep LISTEN | awk '
-{
-    # $4 Local Address sutunu (IP:Port)
-    local_address = $4;
-    # $NF (Program Adı/PID) son sutun
-    program_info = $NF;
-
-    # Program adını (PID/program_name) ayırırıq
-    split(program_info, arr, "/");
-    program_name = arr[1];
-
-    # Eger ad bosdursa (yalnız PID varsa)
-    if (program_name == "") {
-        program_name = arr[2];
-    }
-    
-    # Istenılen formatda çap edır: IP:Port ProgramName
-    print local_address " " program_name;
-}'
+netstat -lp
