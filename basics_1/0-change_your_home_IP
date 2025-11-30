@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script sets localhost IP to 127.0.0.2 and facebook.com to 8.8.8.8
 
 # Backup original hosts file
