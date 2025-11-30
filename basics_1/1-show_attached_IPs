@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Bu script makinedeki tüm aktif IPv4 adreslerini gösterir
+
+ifconfig | grep 'inet ' | awk '{print $2}'
