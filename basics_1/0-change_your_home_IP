@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script changes localhost to 127.0.0.2 and sets facebook.com to 8.8.8.8
 
 # Backup original hosts file
